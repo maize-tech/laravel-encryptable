@@ -1,10 +1,10 @@
 <?php
 
-namespace HFarm\Encryptable\Tests;
+namespace Maize\Encryptable\Tests;
 
-use HFarm\Encryptable\Encryption;
-use HFarm\Encryptable\Exceptions\MissingEncryptionCipherException;
-use HFarm\Encryptable\Exceptions\MissingEncryptionKeyException;
+use Maize\Encryptable\Encryption;
+use Maize\Encryptable\Exceptions\MissingEncryptionCipherException;
+use Maize\Encryptable\Exceptions\MissingEncryptionKeyException;
 
 class EncrypterTest extends TestCase
 {

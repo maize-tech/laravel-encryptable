@@ -1,9 +1,9 @@
 <?php
 
-namespace HFarm\Encryptable\Utils;
+namespace Maize\Encryptable\Utils;
 
-use HFarm\Encryptable\Exceptions\SerializationException;
-use HFarm\Encryptable\Exceptions\UnserializationException;
+use Maize\Encryptable\Exceptions\SerializationException;
+use Maize\Encryptable\Exceptions\UnserializationException;
 
 class Serializer
 {

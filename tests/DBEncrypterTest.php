@@ -1,9 +1,9 @@
 <?php
 
-namespace HFarm\Encryptable\Tests;
+namespace Maize\Encryptable\Tests;
 
-use HFarm\Encryptable\Encryption;
 use Illuminate\Contracts\Encryption\EncryptException;
+use Maize\Encryptable\Encryption;
 
 class DBEncrypterTest extends TestCase
 {

@@ -1,23 +1,23 @@
 {
-    "name": "h-farm/laravel-encryptable",
+    "name": "maize-tech/laravel-encryptable",
     "description": "Laravel Encryptable",
     "keywords": [
-        "h-farm",
+        "maize-tech",
         "laravel-encryptable"
     ],
-    "homepage": "https://github.com/h-farm/laravel-encryptable",
+    "homepage": "https://github.com/maize-tech/laravel-encryptable",
     "license": "MIT",
     "authors": [
         {
             "name": "Enrico De Lazzari",
             "email": "enrico.delazzari@h-farm.com",
-            "homepage": "https://h-farm.com",
+            "homepage": "https://innovation.h-farm.com",
             "role": "Developer"
         },
         {
             "name": "Riccardo Dalla Via",
             "email": "riccardo.dallavia@h-farm.com",
-            "homepage": "https://h-farm.com",
+            "homepage": "https://innovation.h-farm.com",
             "role": "Developer"
         }
     ],
@@ -39,12 +39,12 @@
     },
     "autoload": {
         "psr-4": {
-            "HFarm\\Encryptable\\": "src"
+            "Maize\\Encryptable\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "HFarm\\Encryptable\\Tests\\": "tests"
+            "Maize\\Encryptable\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -59,7 +59,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "HFarm\\Encryptable\\EncryptableServiceProvider"
+                "Maize\\Encryptable\\EncryptableServiceProvider"
             ]
         }
     },

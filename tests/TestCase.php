@@ -1,10 +1,10 @@
 <?php
 
-namespace HFarm\Encryptable\Tests;
+namespace Maize\Encryptable\Tests;
 
-use HFarm\Encryptable\EncryptableServiceProvider;
-use HFarm\Encryptable\Tests\Models\User;
 use Illuminate\Database\Schema\Blueprint;
+use Maize\Encryptable\EncryptableServiceProvider;
+use Maize\Encryptable\Tests\Models\User;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra

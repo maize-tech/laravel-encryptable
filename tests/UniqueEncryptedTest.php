@@ -1,9 +1,9 @@
 <?php
 
-namespace HFarm\Encryptable\Tests;
+namespace Maize\Encryptable\Tests;
 
-use HFarm\Encryptable\Rules\UniqueEncrypted;
 use Illuminate\Support\Facades\Validator;
+use Maize\Encryptable\Rules\UniqueEncrypted;
 
 class UniqueEncryptedTest extends TestCase
 {

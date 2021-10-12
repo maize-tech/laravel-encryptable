@@ -1,9 +1,9 @@
 <?php
 
-namespace HFarm\Encryptable\Tests\Models;
+namespace Maize\Encryptable\Tests\Models;
 
-use HFarm\Encryptable\Encryptable;
 use Illuminate\Database\Eloquent\Model;
+use Maize\Encryptable\Encryptable;
 
 class User extends Model
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace HFarm\Encryptable;
+namespace Maize\Encryptable;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;

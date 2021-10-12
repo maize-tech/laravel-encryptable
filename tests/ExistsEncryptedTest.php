@@ -1,9 +1,9 @@
 <?php
 
-namespace HFarm\Encryptable\Tests;
+namespace Maize\Encryptable\Tests;
 
-use HFarm\Encryptable\Rules\ExistsEncrypted;
 use Illuminate\Support\Facades\Validator;
+use Maize\Encryptable\Rules\ExistsEncrypted;
 
 class ExistsEncryptedTest extends TestCase
 {

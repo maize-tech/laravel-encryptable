@@ -1,6 +1,6 @@
 <?php
 
-namespace HFarm\Encryptable\Exceptions;
+namespace Maize\Encryptable\Exceptions;
 
 use RuntimeException;
 

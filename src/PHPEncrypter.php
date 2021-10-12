@@ -1,11 +1,11 @@
 <?php
 
-namespace HFarm\Encryptable;
+namespace Maize\Encryptable;
 
-use HFarm\Encryptable\Utils\Serializer;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Encryption\EncryptException;
 use Illuminate\Support\Str;
+use Maize\Encryptable\Utils\Serializer;
 
 class PHPEncrypter extends Encrypter
 {

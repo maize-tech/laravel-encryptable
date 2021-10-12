@@ -1,6 +1,6 @@
 <?php
 
-namespace HFarm\Encryptable;
+namespace Maize\Encryptable;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 

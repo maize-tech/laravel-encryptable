@@ -1,10 +1,10 @@
 <?php
 
-namespace HFarm\Encryptable\Tests;
+namespace Maize\Encryptable\Tests;
 
-use HFarm\Encryptable\Encryption;
-use HFarm\Encryptable\Tests\Models\User;
 use Illuminate\Support\Facades\DB;
+use Maize\Encryptable\Encryption;
+use Maize\Encryptable\Tests\Models\User;
 
 class EncryptableTest extends TestCase
 {

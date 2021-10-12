@@ -1,10 +1,10 @@
 <?php
 
-namespace HFarm\Encryptable\Tests;
+namespace Maize\Encryptable\Tests;
 
-use HFarm\Encryptable\Exceptions\SerializationException;
-use HFarm\Encryptable\Exceptions\UnserializationException;
-use HFarm\Encryptable\Utils\Serializer;
+use Maize\Encryptable\Exceptions\SerializationException;
+use Maize\Encryptable\Exceptions\UnserializationException;
+use Maize\Encryptable\Utils\Serializer;
 
 class SerializerTest extends TestCase
 {

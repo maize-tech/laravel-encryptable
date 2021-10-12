@@ -1,8 +1,8 @@
 <?php
 
-namespace HFarm\Encryptable\Tests;
+namespace Maize\Encryptable\Tests;
 
-use HFarm\Encryptable\Encryption;
+use Maize\Encryptable\Encryption;
 
 class PHPEncrypterTest extends TestCase
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace HFarm\Encryptable\Rules;
+namespace Maize\Encryptable\Rules;
 
-use HFarm\Encryptable\Encryption;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
+use Maize\Encryptable\Encryption;
 
 class UniqueEncrypted extends Unique implements Rule
 {

@@ -2,10 +2,10 @@
 
 # Laravel Encryptable
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/h-farm/laravel-encryptable.svg?style=flat-square)](https://packagist.org/packages/h-farm/laravel-encryptable)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/h-farm/laravel-encryptable/run-tests?label=tests)](https://github.com/h-farm/laravel-encryptable/actions?query=workflow%3ATests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/h-farm/laravel-encryptable/Check%20&%20fix%20styling?label=code%20style)](https://github.com/h-farm/laravel-encryptable/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/h-farm/laravel-encryptable.svg?style=flat-square)](https://packagist.org/packages/h-farm/laravel-encryptable)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/maize-tech/laravel-encryptable.svg?style=flat-square)](https://packagist.org/packages/maize-tech/laravel-encryptable)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/maize-tech/laravel-encryptable/run-tests?label=tests)](https://github.com/maize-tech/laravel-encryptable/actions?query=workflow%3ATests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/maize-tech/laravel-encryptable/Check%20&%20fix%20styling?label=code%20style)](https://github.com/maize-tech/laravel-encryptable/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/maize-tech/laravel-encryptable.svg?style=flat-square)](https://packagist.org/packages/maize-tech/laravel-encryptable)
 
 
 This package allows you to anonymize sensitive data (like the name, surname and email address of a user) similarly to Laravel's Encryption feature, but still have the ability to make direct queries to the database.
@@ -18,12 +18,12 @@ This package currently supports `MySQL` and `PostgreSQL` databases.
 You can install the package via composer:
 
 ```bash
-composer require h-farm/laravel-encryptable
+composer require maize-tech/laravel-encryptable
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="HFarm\Encryptable\EncryptableServiceProvider" --tag="encryptable-config"
+php artisan vendor:publish --provider="Maize\Encryptable\EncryptableServiceProvider" --tag="encryptable-config"
 ```
 
 This is the content of the published config file:
@@ -68,7 +68,7 @@ To use the package, just add the `Encryptable` cast to all model attributes you 
 
 namespace App\Models;
 
-use HFarm\Encryptable\Encryptable;
+use Maize\Encryptable\Encryptable;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
@@ -90,7 +90,7 @@ Once done, all values will be encrypted before being stored in the database, and
 ### Manually encrypt via PHP
 
 ``` php
-use HFarm\Encryptable\Encryption;
+use Maize\Encryptable\Encryption;
 
 $value = "your-decrypted-value";
 
@@ -100,7 +100,7 @@ $encrypted = Encryption::php()->encrypt($value); // returns the encrypted value
 ### Manually decrypt via PHP
 
 ``` php
-use HFarm\Encryptable\Encryption;
+use Maize\Encryptable\Encryption;
 
 $encrypted = "your-encrypted-value";
 
@@ -110,7 +110,7 @@ $value = Encryption::php()->decrypt($value); // returns the decrypted value
 ### Manually decrypt via DB
 
 ``` php
-use HFarm\Encryptable\Encryption;
+use Maize\Encryptable\Encryption;
 
 $encrypted = "your-encrypted-value";
 
@@ -124,7 +124,7 @@ You can use one of the two custom rules to check the uniqueness or existence of 
 `ExistsEncrypted` is an extension of Laravel's `Exists` rule, whereas `UniqueEncrypted` is an extension of Laravel's `Unique` rule.
 You can use them in the same way as Laravel's base rules:
 ``` php
-use HFarm\Encryptable\Rules\ExistsEncrypted;
+use Maize\Encryptable\Rules\ExistsEncrypted;
 use Illuminate\Support\Facades\Validator;
 
 $data = [
@@ -142,7 +142,7 @@ Validator::make($data, [
 ```
 
 ``` php
-use HFarm\Encryptable\Rules\UniqueEncrypted;
+use Maize\Encryptable\Rules\UniqueEncrypted;
 use Illuminate\Support\Facades\Validator;
 
 $data = [

@@ -1,9 +1,9 @@
 <?php
 
-namespace HFarm\Encryptable;
+namespace Maize\Encryptable;
 
-use HFarm\Encryptable\Exceptions\MissingEncryptionCipherException;
-use HFarm\Encryptable\Exceptions\MissingEncryptionKeyException;
+use Maize\Encryptable\Exceptions\MissingEncryptionCipherException;
+use Maize\Encryptable\Exceptions\MissingEncryptionKeyException;
 
 abstract class Encrypter
 {
