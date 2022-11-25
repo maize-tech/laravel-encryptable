@@ -3,6 +3,7 @@
 namespace Maize\Encryptable\Tests;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Maize\Encryptable\Rules\UniqueEncrypted;
 
 class UniqueEncryptedTest extends TestCase
@@ -20,6 +21,18 @@ class UniqueEncryptedTest extends TestCase
 
         $validationFails = Validator::make($user->toArray(), [
             'first_name' => new UniqueEncrypted('users'),
+        ])->fails();
+
+        $this->assertTrue($validationFails);
+    }
+
+    /** @test */
+    public function it_should_have_rule_macro()
+    {
+        $user = $this->createUser();
+
+        $validationFails = Validator::make($user->toArray(), [
+            'first_name' => Rule::uniqueEncrypted('users'),
         ])->fails();
 
         $this->assertTrue($validationFails);

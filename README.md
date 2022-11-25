@@ -126,6 +126,7 @@ You can use them in the same way as Laravel's base rules:
 ``` php
 use Maize\Encryptable\Rules\ExistsEncrypted;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 $data = [
     'email' => 'email@example.com',
@@ -137,6 +138,7 @@ Validator::make($data, [
         'string',
         'email',
         new ExistsEncrypted('users'), // checks whether the given email exists in the database
+        Rule::existsEncrypted('users') // alternative way to invoke the rule
     ],
 ]);
 ```
@@ -155,6 +157,7 @@ Validator::make($data, [
         'string',
         'email',
         new UniqueEncrypted('users'), // checks whether the given email does not already exist in the database
+        Rule::uniqueEncrypted('users') // alternative way to invoke the rule
     ],
 ]);
 ```
