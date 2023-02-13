@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-encryptable` will be documented in this file.
 
+## 3.2.0 - 2023-02-13
+
+### What's Changed
+
+- Add support to Laravel 10.x
+
 ## 3.1.0 - 2022-11-25
 
 ### What's Changed
