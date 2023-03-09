@@ -30,6 +30,30 @@ class EncryptableTest extends TestCase
     }
 
     /** @test */
+    public function it_should_encrypt_data_when_updating_model_instance()
+    {
+        $user = $this->createUser();
+
+        $user->update([
+            'first_name' => 'Test',
+        ]);
+
+        $userRaw = DB::table($user->getTable())
+            ->select('*')
+            ->where('id', $user->getKey())
+            ->first();
+
+        $this->assertTrue(
+            Encryption::isEncrypted($userRaw->first_name)
+        );
+
+        $this->assertEquals(
+            'Test',
+            Encryption::php()->decrypt($userRaw->first_name)
+        );
+    }
+
+    /** @test */
     public function it_should_decrypt_data_when_retrieving_models()
     {
         $user = $this->createUser();
