@@ -25,6 +25,11 @@ class SerializerTest extends TestCase
         );
 
         $this->assertEquals(
+            'string:test:test',
+            Serializer::serialize('test:test')
+        );
+
+        $this->assertEquals(
             'integer:1',
             Serializer::serialize(1)
         );
@@ -54,6 +59,10 @@ class SerializerTest extends TestCase
         $string = Serializer::unserialize('string:test');
         $this->assertIsString($string);
         $this->assertEquals('test', $string);
+
+        $string = Serializer::unserialize('string:test:test');
+        $this->assertIsString($string);
+        $this->assertEquals('test:test', $string);
 
         $integer = Serializer::unserialize('integer:1');
         $this->assertIsInt($integer);

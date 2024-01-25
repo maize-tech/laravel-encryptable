@@ -29,7 +29,7 @@ class Serializer
 
     public static function unserialize(string $payload)
     {
-        $payload = explode(':', $payload);
+        $payload = explode(':', $payload, 2);
 
         if (count($payload) !== 2) {
             throw new UnserializationException();
