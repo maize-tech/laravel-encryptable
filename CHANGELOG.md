@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-encryptable` will be documented in this file.
 
+## 3.2.1 - 2024-01-25
+
+### What's Changed
+
+* FIX php unserializer issues
+
 ## 3.2.0 - 2023-02-13
 
 ### What's Changed
