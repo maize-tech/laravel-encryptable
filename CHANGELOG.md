@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-encryptable` will be documented in this file.
 
+## 3.3.0 - 2024-03-27
+
+### What's Changed
+
+* Laravel 11.x Compatibility by @enricodelazzari in https://github.com/maize-tech/laravel-encryptable/pull/26
+
 ## 3.2.1 - 2024-01-25
 
 ### What's Changed
