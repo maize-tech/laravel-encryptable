@@ -40,6 +40,6 @@ class ExistsEncrypted implements Rule
 
     public function message(): string
     {
-        return 'The selected :attribute is invalid.';
+        return __('validation.exists');
     }
 }

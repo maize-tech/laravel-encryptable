@@ -40,6 +40,6 @@ class UniqueEncrypted implements Rule
 
     public function message(): string
     {
-        return 'The :attribute has already been taken.';
+        return __('validation.unique');
     }
 }
