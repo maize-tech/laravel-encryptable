@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-encryptable` will be documented in this file.
 
+## 3.3.1 - 2025-09-29
+
+### What's Changed
+
+* FIX validation massages by @enricodelazzari in https://github.com/maize-tech/laravel-encryptable/pull/35
+
+**Full Changelog**: https://github.com/maize-tech/laravel-encryptable/compare/3.3.0...3.3.1
+
 ## 3.3.0 - 2024-03-27
 
 ### What's Changed
