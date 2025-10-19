@@ -18,7 +18,7 @@ abstract class Encrypter
         $key = config('encryptable.key');
 
         if (empty($key)) {
-            throw new MissingEncryptionKeyException();
+            throw new MissingEncryptionKeyException;
         }
 
         return (string) $key;
@@ -29,7 +29,7 @@ abstract class Encrypter
         $cipher = config('encryptable.cipher');
 
         if (empty($cipher)) {
-            throw new MissingEncryptionCipherException();
+            throw new MissingEncryptionCipherException;
         }
 
         return (string) $cipher;

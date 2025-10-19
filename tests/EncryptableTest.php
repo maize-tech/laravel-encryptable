@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\DB;
 use Maize\Encryptable\Encryption;
 use Maize\Encryptable\Tests\Models\User;
 
-
 it('should encrypt data when saving model instance', function () {
     $user = $this->createUser();
 

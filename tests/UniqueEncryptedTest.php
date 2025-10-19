@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Maize\Encryptable\Rules\UniqueEncrypted;
 
-
 it('should validate encrypted data with custom unique rule', function () {
     $user = $this->createUser();
 

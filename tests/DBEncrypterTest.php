@@ -3,7 +3,6 @@
 use Illuminate\Contracts\Encryption\EncryptException;
 use Maize\Encryptable\Encryption;
 
-
 it('should throw exception on db encrypt', function () {
     $this->expectException(EncryptException::class);
 

@@ -2,7 +2,6 @@
 
 use Maize\Encryptable\Encryption;
 
-
 it('should not encrypt already encrypted value', function () {
     $value = Encryption::php()->encrypt('test');
 

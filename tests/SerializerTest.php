@@ -4,7 +4,6 @@ use Maize\Encryptable\Exceptions\SerializationException;
 use Maize\Encryptable\Exceptions\UnserializationException;
 use Maize\Encryptable\Utils\Serializer;
 
-
 it('should throw exception when serializing unsupported type', function () {
     $this->expectException(SerializationException::class);
 

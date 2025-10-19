@@ -49,7 +49,7 @@ class TestCase extends Orchestra
 
     public function createUser(array $attrs = [])
     {
-        $user = new User();
+        $user = new User;
 
         $user->forceFill(array_merge([
             'first_name' => 'Name',
