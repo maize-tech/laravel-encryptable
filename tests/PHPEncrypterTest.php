@@ -1,55 +1,30 @@
 <?php
 
-namespace Maize\Encryptable\Tests;
-
 use Maize\Encryptable\Encryption;
 
-class PHPEncrypterTest extends TestCase
-{
-    /** @test */
-    public function it_should_not_encrypt_already_encrypted_value()
-    {
-        $value = Encryption::php()->encrypt('test');
 
-        $this->assertEquals(
-            $value,
-            Encryption::php()->encrypt($value)
-        );
-    }
+it('should not encrypt already encrypted value', function () {
+    $value = Encryption::php()->encrypt('test');
 
-    /** @test */
-    public function it_should_return_a_string_when_encrypting_value()
-    {
-        $value = Encryption::php()->encrypt('test');
+    expect(Encryption::php()->encrypt($value))->toEqual($value);
+});
 
-        $this->assertIsString($value);
+it('should return a string when encrypting value', function () {
+    $value = Encryption::php()->encrypt('test');
 
-        $this->assertTrue(
-            Encryption::isEncrypted($value)
-        );
-    }
+    expect($value)->toBeString();
 
-    /** @test */
-    public function it_should_not_decrypt_an_unencrypted_value()
-    {
-        $this->assertEquals(
-            'test',
-            Encryption::php()->decrypt('test')
-        );
-    }
+    expect(Encryption::isEncrypted($value))->toBeTrue();
+});
 
-    /** @test */
-    public function it_should_return_value_when_decrypting_value()
-    {
-        $value = Encryption::php()->encrypt(false);
+it('should not decrypt an unencrypted value', function () {
+    expect(Encryption::php()->decrypt('test'))->toEqual('test');
+});
 
-        $this->assertIsBool(
-            Encryption::php()->decrypt($value)
-        );
+it('should return value when decrypting value', function () {
+    $value = Encryption::php()->encrypt(false);
 
-        $this->assertEquals(
-            false,
-            Encryption::php()->decrypt($value)
-        );
-    }
-}
+    expect(Encryption::php()->decrypt($value))->toBeBool();
+
+    expect(Encryption::php()->decrypt($value))->toEqual(false);
+});

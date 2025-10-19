@@ -1,69 +1,50 @@
 <?php
 
-namespace Maize\Encryptable\Tests;
-
 use Illuminate\Support\Facades\DB;
 use Maize\Encryptable\Encryption;
 use Maize\Encryptable\Tests\Models\User;
 
-class EncryptableTest extends TestCase
-{
-    /** @test */
-    public function it_should_encrypt_data_when_saving_model_instance()
-    {
-        $user = $this->createUser();
 
-        $this->assertDatabaseCount($user->getTable(), 1);
+it('should encrypt data when saving model instance', function () {
+    $user = $this->createUser();
 
-        $userRaw = DB::table($user->getTable())
-            ->select('*')
-            ->where('id', $user->getKey())
-            ->first();
+    $this->assertDatabaseCount($user->getTable(), 1);
 
-        $this->assertTrue(
-            Encryption::isEncrypted($userRaw->first_name)
-        );
+    $userRaw = DB::table($user->getTable())
+        ->select('*')
+        ->where('id', $user->getKey())
+        ->first();
 
-        $this->assertTrue(
-            Encryption::isEncrypted($userRaw->last_name)
-        );
-    }
+    expect(Encryption::isEncrypted($userRaw->first_name))->toBeTrue();
 
-    /** @test */
-    public function it_should_encrypt_data_when_updating_model_instance()
-    {
-        $user = $this->createUser();
+    expect(Encryption::isEncrypted($userRaw->last_name))->toBeTrue();
+});
 
-        $user->update([
-            'first_name' => 'Test',
-        ]);
+it('should encrypt data when updating model instance', function () {
+    $user = $this->createUser();
 
-        $userRaw = DB::table($user->getTable())
-            ->select('*')
-            ->where('id', $user->getKey())
-            ->first();
+    $user->update([
+        'first_name' => 'Test',
+    ]);
 
-        $this->assertTrue(
-            Encryption::isEncrypted($userRaw->first_name)
-        );
+    $userRaw = DB::table($user->getTable())
+        ->select('*')
+        ->where('id', $user->getKey())
+        ->first();
 
-        $this->assertEquals(
-            'Test',
-            Encryption::php()->decrypt($userRaw->first_name)
-        );
-    }
+    expect(Encryption::isEncrypted($userRaw->first_name))->toBeTrue();
 
-    /** @test */
-    public function it_should_decrypt_data_when_retrieving_models()
-    {
-        $user = $this->createUser();
+    expect(Encryption::php()->decrypt($userRaw->first_name))->toEqual('Test');
+});
 
-        $this->assertDatabaseCount($user->getTable(), 1);
+it('should decrypt data when retrieving models', function () {
+    $user = $this->createUser();
 
-        $user = User::findOrFail($user->getKey());
+    $this->assertDatabaseCount($user->getTable(), 1);
 
-        $this->assertEquals('Name', $user->first_name);
+    $user = User::findOrFail($user->getKey());
 
-        $this->assertEquals('Surname', $user->last_name);
-    }
-}
+    expect($user->first_name)->toEqual('Name');
+
+    expect($user->last_name)->toEqual('Surname');
+});

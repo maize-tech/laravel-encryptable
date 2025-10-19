@@ -1,79 +1,52 @@
 <?php
 
-namespace Maize\Encryptable\Tests;
-
 use Maize\Encryptable\Exceptions\SerializationException;
 use Maize\Encryptable\Exceptions\UnserializationException;
 use Maize\Encryptable\Utils\Serializer;
 
-class SerializerTest extends TestCase
-{
-    /** @test */
-    public function it_should_throw_exception_when_serializing_unsupported_type()
-    {
-        $this->expectException(SerializationException::class);
 
-        Serializer::serialize(['test array']);
-    }
+it('should throw exception when serializing unsupported type', function () {
+    $this->expectException(SerializationException::class);
 
-    /** @test */
-    public function it_should_serialize_all_supported_values()
-    {
-        $this->assertEquals(
-            'string:test',
-            Serializer::serialize('test')
-        );
+    Serializer::serialize(['test array']);
+});
 
-        $this->assertEquals(
-            'string:test:test',
-            Serializer::serialize('test:test')
-        );
+it('should serialize all supported values', function () {
+    expect(Serializer::serialize('test'))->toEqual('string:test');
 
-        $this->assertEquals(
-            'integer:1',
-            Serializer::serialize(1)
-        );
+    expect(Serializer::serialize('test:test'))->toEqual('string:test:test');
 
-        $this->assertEquals(
-            'double:1.3',
-            Serializer::serialize(1.3)
-        );
+    expect(Serializer::serialize(1))->toEqual('integer:1');
 
-        $this->assertEquals(
-            'boolean:1',
-            Serializer::serialize(true)
-        );
-    }
+    expect(Serializer::serialize(1.3))->toEqual('double:1.3');
 
-    /** @test */
-    public function it_should_throw_exception_when_unserializing_invalid_value()
-    {
-        $this->expectException(UnserializationException::class);
+    expect(Serializer::serialize(true))->toEqual('boolean:1');
+});
 
-        Serializer::unserialize('test');
-    }
+it('should throw exception when unserializing invalid value', function () {
+    $this->expectException(UnserializationException::class);
 
-    /** @test */
-    public function it_should_unserialize_all_supported_values()
-    {
-        $string = Serializer::unserialize('string:test');
-        $this->assertIsString($string);
-        $this->assertEquals('test', $string);
+    Serializer::unserialize('test');
+});
 
-        $string = Serializer::unserialize('string:test:test');
-        $this->assertIsString($string);
-        $this->assertEquals('test:test', $string);
+it('should unserialize all supported values', function () {
+    $string = Serializer::unserialize('string:test');
+    expect($string)->toBeString();
+    expect($string)->toEqual('test');
 
-        $integer = Serializer::unserialize('integer:1');
-        $this->assertIsInt($integer);
-        $this->assertEquals(1, $integer);
+    $string = Serializer::unserialize('string:test:test');
+    expect($string)->toBeString();
+    expect($string)->toEqual('test:test');
 
-        $double = Serializer::unserialize('double:1.3');
-        $this->assertIsFloat($double);
-        $this->assertEquals(1.3, $double);
+    $integer = Serializer::unserialize('integer:1');
+    expect($integer)->toBeInt();
+    expect($integer)->toEqual(1);
 
-        $boolean = Serializer::unserialize('boolean:1');
-        $this->assertIsBool($boolean);
-        $this->assertEquals(true, $boolean);
-    }
-}
+    $double = Serializer::unserialize('double:1.3');
+    expect($double)->toBeFloat();
+    expect($double)->toEqual(1.3);
+
+    $boolean = Serializer::unserialize('boolean:1');
+    expect($boolean)->toBeBool();
+    expect($boolean)->toEqual(true);
+});

@@ -1,40 +1,32 @@
 <?php
 
-namespace Maize\Encryptable\Tests;
-
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Maize\Encryptable\Rules\ExistsEncrypted;
 
-class ExistsEncryptedTest extends TestCase
-{
-    /** @test */
-    public function it_should_validate_encrypted_data_with_custom_exists_rule()
-    {
-        $user = $this->createUser();
 
-        $validationFails = Validator::make($user->toArray(), [
-            'first_name' => 'exists:users',
-        ])->fails();
+it('should validate encrypted data with custom exists rule', function () {
+    $user = $this->createUser();
 
-        $this->assertTrue($validationFails);
+    $validationFails = Validator::make($user->toArray(), [
+        'first_name' => 'exists:users',
+    ])->fails();
 
-        $validationFails = Validator::make($user->toArray(), [
-            'first_name' => new ExistsEncrypted('users'),
-        ])->fails();
+    expect($validationFails)->toBeTrue();
 
-        $this->assertFalse($validationFails);
-    }
+    $validationFails = Validator::make($user->toArray(), [
+        'first_name' => new ExistsEncrypted('users'),
+    ])->fails();
 
-    /** @test */
-    public function it_should_have_rule_macro()
-    {
-        $user = $this->createUser();
+    expect($validationFails)->toBeFalse();
+});
 
-        $validationFails = Validator::make($user->toArray(), [
-            'first_name' => Rule::existsEncrypted('users'),
-        ])->fails();
+it('should have rule macro', function () {
+    $user = $this->createUser();
 
-        $this->assertFalse($validationFails);
-    }
-}
+    $validationFails = Validator::make($user->toArray(), [
+        'first_name' => Rule::existsEncrypted('users'),
+    ])->fails();
+
+    expect($validationFails)->toBeFalse();
+});

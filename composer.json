@@ -29,11 +29,14 @@
         "illuminate/database": "^11.0|^12.0",
         "illuminate/support": "^11.0|^12.0",
         "illuminate/validation": "^11.0|^12.0",
+        "laravel/framework": "11.*",
+        "orchestra/testbench": "9.*",
         "spatie/laravel-package-tools": "^1.14.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.4",
-        "orchestra/testbench": "^9.0|^10.0",
+        "pestphp/pest": "^3.8",
+        "pestphp/pest-plugin-laravel": "^3.2",
         "phpunit/phpunit": "^10.5|^11.0",
         "vimeo/psalm": "^5.22|^6.0"
     },
@@ -50,11 +53,14 @@
     "scripts": {
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
         "psalm": "vendor/bin/psalm",
-        "test": "vendor/bin/phpunit --colors=always",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "extra": {
         "laravel": {

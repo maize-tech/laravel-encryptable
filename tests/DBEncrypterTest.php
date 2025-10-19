@@ -1,25 +1,17 @@
 <?php
 
-namespace Maize\Encryptable\Tests;
-
 use Illuminate\Contracts\Encryption\EncryptException;
 use Maize\Encryptable\Encryption;
 
-class DBEncrypterTest extends TestCase
-{
-    /** @test */
-    public function it_should_throw_exception_on_db_encrypt()
-    {
-        $this->expectException(EncryptException::class);
 
-        Encryption::db()->encrypt('test');
-    }
+it('should throw exception on db encrypt', function () {
+    $this->expectException(EncryptException::class);
 
-    /** @test */
-    public function it_should_return_query_on_db_decrypt()
-    {
-        $query = Encryption::db()->decrypt('test');
+    Encryption::db()->encrypt('test');
+});
 
-        $this->assertIsString($query);
-    }
-}
+it('should return query on db decrypt', function () {
+    $query = Encryption::db()->decrypt('test');
+
+    expect($query)->toBeString();
+});

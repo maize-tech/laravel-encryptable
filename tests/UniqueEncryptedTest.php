@@ -1,40 +1,32 @@
 <?php
 
-namespace Maize\Encryptable\Tests;
-
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Maize\Encryptable\Rules\UniqueEncrypted;
 
-class UniqueEncryptedTest extends TestCase
-{
-    /** @test */
-    public function it_should_validate_encrypted_data_with_custom_unique_rule()
-    {
-        $user = $this->createUser();
 
-        $validationFails = Validator::make($user->toArray(), [
-            'first_name' => 'unique:users',
-        ])->fails();
+it('should validate encrypted data with custom unique rule', function () {
+    $user = $this->createUser();
 
-        $this->assertFalse($validationFails);
+    $validationFails = Validator::make($user->toArray(), [
+        'first_name' => 'unique:users',
+    ])->fails();
 
-        $validationFails = Validator::make($user->toArray(), [
-            'first_name' => new UniqueEncrypted('users'),
-        ])->fails();
+    expect($validationFails)->toBeFalse();
 
-        $this->assertTrue($validationFails);
-    }
+    $validationFails = Validator::make($user->toArray(), [
+        'first_name' => new UniqueEncrypted('users'),
+    ])->fails();
 
-    /** @test */
-    public function it_should_have_rule_macro()
-    {
-        $user = $this->createUser();
+    expect($validationFails)->toBeTrue();
+});
 
-        $validationFails = Validator::make($user->toArray(), [
-            'first_name' => Rule::uniqueEncrypted('users'),
-        ])->fails();
+it('should have rule macro', function () {
+    $user = $this->createUser();
 
-        $this->assertTrue($validationFails);
-    }
-}
+    $validationFails = Validator::make($user->toArray(), [
+        'first_name' => Rule::uniqueEncrypted('users'),
+    ])->fails();
+
+    expect($validationFails)->toBeTrue();
+});
