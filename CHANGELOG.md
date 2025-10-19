@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-encryptable` will be documented in this file.
 
+## 4.0.0 - 2025-10-19
+
+### What's Changed
+
+* ADD Laravel 12 support by @enricodelazzari in https://github.com/maize-tech/laravel-encryptable/pull/37
+
+**Full Changelog**: https://github.com/maize-tech/laravel-encryptable/compare/3.3.1...4.0.0
+
 ## 3.3.1 - 2025-09-29
 
 ### What's Changed
