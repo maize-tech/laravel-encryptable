@@ -19,7 +19,7 @@ class Serializer
         $valueType = gettype($value);
 
         if (! in_array($valueType, self::SUPPORTED_TYPES)) {
-            throw new SerializationException();
+            throw new SerializationException;
         }
 
         $value = strval($value);
@@ -32,13 +32,13 @@ class Serializer
         $payload = explode(':', $payload, 2);
 
         if (count($payload) !== 2) {
-            throw new UnserializationException();
+            throw new UnserializationException;
         }
 
         [$valueType, $value] = $payload;
 
         if (! settype($value, $valueType)) {
-            throw new UnserializationException();
+            throw new UnserializationException;
         }
 
         return $value;

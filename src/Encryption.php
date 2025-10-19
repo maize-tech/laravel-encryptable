@@ -13,14 +13,14 @@ class Encryption
 
     public static function php(): self
     {
-        return new static(
+        return new self(
             app(PHPEncrypter::class)
         );
     }
 
     public static function db(): self
     {
-        return new static(
+        return new self(
             app(DBEncrypter::class)
         );
     }
