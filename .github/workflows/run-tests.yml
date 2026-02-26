@@ -4,10 +4,10 @@ on:
   push:
     paths:
       - '**.php'
-      - '.github/workflows/run-tests.yml'
-      - 'phpunit.xml.dist'
-      - 'composer.json'
-      - 'composer.lock'
+      - .github/workflows/run-tests.yml
+      - phpunit.xml.dist
+      - composer.json
+      - composer.lock
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -16,19 +16,26 @@ concurrency:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+
     timeout-minutes: 5
+
     strategy:
       fail-fast: true
       matrix:
         os: [ubuntu-latest, windows-latest]
         php: [8.4, 8.3, 8.2]
-        laravel: [12.*, 11.*]
+        laravel: ['11.*', '12.*', '13.*']
         stability: [prefer-lowest, prefer-stable]
         include:
           - laravel: 12.*
             testbench: 10.*
           - laravel: 11.*
             testbench: 9.*
+          - laravel: 13.*
+            testbench: 11.*
+        exclude:
+          - laravel: 13.*
+            php: 8.2
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
