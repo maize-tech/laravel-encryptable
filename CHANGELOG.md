@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-encryptable` will be documented in this file.
 
+## 4.1.0 - 2026-06-24
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/maize-tech/laravel-encryptable/pull/39
+* Add Laravel 13 and PHP 8.5 support by @enricodelazzari in https://github.com/maize-tech/laravel-encryptable/pull/44
+
+**Full Changelog**: https://github.com/maize-tech/laravel-encryptable/compare/4.0.0...4.1.0
+
 ## 4.0.0 - 2025-10-19
 
 ### What's Changed
